@@ -19,3 +19,4 @@ export class Offer {
   pictures: Picture[];
   offerParameters: OfferParameter[];
 }
+
