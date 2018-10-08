@@ -23,10 +23,24 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/app/ui/style/css/style.css",
+              "src/app/ui/style/css/bootstrap.min.css",
+              "src/app/ui/style/css/font-awesome.min.css",
+              "src/app/ui/style/css/nouislider.min.css",
+              "src/app/ui/style/css/slick.css",
+              "src/app/ui/style/css/slick-theme.css",
+              "node_modules/font-awesome/css/font-awesome.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/app/ui/style/js/bootstrap.min.js",
+              "src/app/ui/style/js/jquery.min.js",
+              "src/app/ui/style/js/jquery.zoom.min.js",
+              "src/app/ui/style/js/main.js",
+              "src/app/ui/style/js/nouislider.min.js",
+              "src/app/ui/style/js/slick.min.js"
+            ]
           },
+
           "configurations": {
             "production": {
               "fileReplacements": [
@@ -105,12 +119,14 @@
             "protractorConfig": "e2e/protractor.conf.js",
             "devServerTarget": "IndobidsFrontend:serve"
           },
+
           "configurations": {
             "production": {
               "devServerTarget": "IndobidsFrontend:serve:production"
             }
           }
         },
+
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
@@ -124,4 +140,5 @@
     }
   },
   "defaultProject": "IndobidsFrontend"
+
 }
