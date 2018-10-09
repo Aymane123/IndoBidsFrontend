@@ -9,41 +9,6 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 </head>
 <body>
-<div id="header-row">
-<p>
-  Shop Title:{{shopDTO.name}}
-
-</p>
-
-  <!-- show all offers -->
-  <!-- store top filter -->
-  <!--
-  <div class="store-filter clearfix">
-    <div class="store-sort">
-      <label>
-        Sort By:
-        <select class="input-select">
-          <option value="0">Popular</option>
-          <option value="1">Position</option>
-        </select>
-      </label>
-      <label>
-        Show:
-        <select class="input-select">
-          <option value="0">20</option>
-          <option value="1">50</option>
-        </select>
-      </label>
-    </div>
-  <ul class="store-grid">
-    <li class="active"><i class="fa fa-th"></i></li>
-    <li><a href="#"><i class="fa fa-th-list"></i></a></li>
-  </ul>
-</div>
-
-  -->
-  <!-- /store top filter -->
-</div>
 <div>
   <app-cataogsection></app-cataogsection>
 </div>
@@ -57,7 +22,7 @@
       <!-- section title -->
       <div class="col-md-12">
         <div class="section-title">
-          <h3 class="title">New Products this week</h3>
+          <h3 class="title">New Products this week by {{shopDTO.name}}</h3>
           <div class="section-nav">
             <ul class="section-tab-nav tab-nav">
               <li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
@@ -68,25 +33,10 @@
           </div>
         </div>
       </div>
-      <!-- /section title -->
-      <div>
-        <app-offer></app-offer>
-      </div>
-      <div>
-        <app-offer></app-offer>
-      </div>
-      <div>
-        <app-offer></app-offer>
-      </div>
-      <div>
-        <app-offer></app-offer>
-      </div>
-      <div>
-        <app-offer></app-offer>
-      </div>
-      <div>
-        <app-offer></app-offer>
-      </div>
+    </div>
+    <!-- /section title -->
+    <div *ngFor="let offerDTO of offerDTOS; let i = index" class="item">
+      <app-offer [offer]="offerDTO"></app-offer>
     </div>
   </div>
 </div>

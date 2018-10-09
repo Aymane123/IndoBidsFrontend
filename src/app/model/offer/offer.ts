@@ -20,3 +20,20 @@ export class Offer {
   offerParameters: OfferParameter[];
 }
 
+export class OfferDTO {
+  offer_id: number;
+  id: string;
+  url: string;
+  price: number;
+  oldprice: number;
+  currencyId: string;
+  categoryId: string;
+  delivery: boolean;
+  name: string;
+  vendor: string;
+  vendorCode: string;
+  model: string;
+  description: string;
+  available: string;
+  pictureUrls: string[];
+}

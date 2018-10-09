@@ -10,8 +10,9 @@ import {Offer} from '../model/offer/offer';
 @Injectable()
 export class CatalogService {
   private baseUrl = 'http://localhost:8090/shop';
-  private getShopUrl = '/getShop/';
-  private getShopOffersUrl: '/getShopOffersUrl/';
+  private getShopUrl = '/getShop';
+  private getShopOffersUrl = '/getShopOffers';
+  private get20ShopOffersUrl = '/get20ShopOffers';
 
   constructor(private http: HttpClient,
               private xhrBaseRequestOptions: XhrBaseRequestOptions,
@@ -23,8 +24,13 @@ export class CatalogService {
     return this.http.get(callUrl);
   }
 
-  public getShopOffers(): Observable<any> {
+  public getShopOffers(amount: number): Observable<any> {
     const callUrl = this.baseUrl + this.getShopOffersUrl;
+    return this.http.get(callUrl);
+  }
+
+  public get20ShopOffers(): Observable<any> {
+    const callUrl = this.baseUrl + this.get20ShopOffersUrl;
     return this.http.get(callUrl);
   }
 
