@@ -35,5 +35,5 @@ export class OfferDTO {
   model: string;
   description: string;
   available: string;
-  pictureUrls: string[];
+  picturesUrls: string[];
 }

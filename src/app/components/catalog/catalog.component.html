@@ -9,36 +9,34 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 </head>
 <body>
-<div>
+<!--<div>
   <app-cataogsection></app-cataogsection>
-</div>
+</div>-->
 
 <!-- SECTION -->
 <div class="section">
   <!-- container -->
   <div class="container">
     <!-- row -->
-    <div class="row">
-      <!-- section title -->
-      <div class="col-md-12">
-        <div class="section-title">
-          <h3 class="title">New Products this week by {{shopDTO.name}}</h3>
-          <div class="section-nav">
-            <ul class="section-tab-nav tab-nav">
-              <li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-              <li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-              <li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-              <li><a data-toggle="tab" href="#tab1">Accessories</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+<app-sortingsection [shoptitle]="shopDTO.name"></app-sortingsection>
     <!-- /section title -->
     <div *ngFor="let offerDTO of offerDTOS; let i = index" class="item">
-      <app-offer [offer]="offerDTO"></app-offer>
+      <app-offer [offer]="offerDTO"
+                 [shop]="shopDTO">
+      </app-offer>
+      <div class="clearfix visible-sm visible-xs"></div>
     </div>
   </div>
+  <!-- store bottom filter -->
+  <div class="store-filter clearfix">
+    <span class="store-qty">Showing 20-100 products</span>
+    <ul class="store-pagination">
+      <li class="active">1</li>
+      <li><a href="#">2</a></li>
+      <li><a href="#">3</a></li>
+      <li><a href="#">4</a></li>
+      <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+    </ul>
+  </div>
 </div>
-
 </body>

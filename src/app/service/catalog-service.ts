@@ -5,7 +5,7 @@ import {NgModel} from '@angular/forms';
 import {SubscribeResultHandler, XhrBaseRequestOptions} from '../util/utils';
 import set = Reflect.set;
 import {HttpClient, HttpHeaders, HttpClientModule} from '@angular/common/http';
-import {Offer} from '../model/offer/offer';
+import {Offer, OfferDTO} from '../model/offer/offer';
 
 @Injectable()
 export class CatalogService {
@@ -13,6 +13,7 @@ export class CatalogService {
   private getShopUrl = '/getShop';
   private getShopOffersUrl = '/getShopOffers';
   private get20ShopOffersUrl = '/get20ShopOffers';
+  private getOfferForIdUrl = '/getOfferById/';
 
   constructor(private http: HttpClient,
               private xhrBaseRequestOptions: XhrBaseRequestOptions,
@@ -34,5 +35,9 @@ export class CatalogService {
     return this.http.get(callUrl);
   }
 
+  public getOfferById(id: string): Observable<any> {
+    const callUrl = this.baseUrl + this.getOfferForIdUrl + id;
+    return this.http.get(callUrl);
+  }
 
 }

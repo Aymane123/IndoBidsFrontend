@@ -26,11 +26,6 @@ export class CatalogComponent implements OnInit {
     this.get20ShopOffers();
   }
 
-  private handleError(error: any) {
-    console.log(error as string);
-    this.loadingCatalog = false;
-  }
-
   private getShop() {
     this.subscriptions.push(this.catalogService.getShop().subscribe(
       result => {
@@ -65,6 +60,11 @@ export class CatalogComponent implements OnInit {
         this.handleError(error);
       }
     );
+  }
+
+  private handleError(error: any) {
+    console.log(error as string);
+    this.loadingCatalog = false;
   }
 
 }
