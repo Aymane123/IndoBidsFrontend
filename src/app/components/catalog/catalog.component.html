@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IndoBidsCatalogComponent</title>
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+</head>
+<body>
+<div>
+  <app-cataogsection></app-cataogsection>
+</div>
+
+<!-- SECTION -->
+<div class="section">
+  <!-- container -->
+  <div class="container">
+    <!-- row -->
+    <div class="row">
+      <!-- section title -->
+      <div class="col-md-12">
+        <div class="section-title">
+          <h3 class="title">New Products this week by {{shopDTO.name}}</h3>
+          <div class="section-nav">
+            <ul class="section-tab-nav tab-nav">
+              <li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
+              <li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
+              <li><a data-toggle="tab" href="#tab1">Cameras</a></li>
+              <li><a data-toggle="tab" href="#tab1">Accessories</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /section title -->
+    <div *ngFor="let offerDTO of offerDTOS; let i = index" class="item">
+      <app-offer [offer]="offerDTO"></app-offer>
+    </div>
+  </div>
+</div>
+
+</body>

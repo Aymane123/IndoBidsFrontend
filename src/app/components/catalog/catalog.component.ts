@@ -1,0 +1,75 @@
+import {Component, Input, OnInit} from '@angular/core';
+import {CatalogService} from '../../service/catalog-service';
+import {Shop, ShopDTO} from '../../model/shop/shop';
+import {Offer, OfferDTO} from '../../model/offer/offer';
+import {StorageService} from '../../service/storage-service';
+
+@Component({
+  selector: 'app-catalog',
+  templateUrl: 'catalog.component.html',
+  styleUrls: ['catalog.component.css']
+})
+
+export class CatalogComponent implements OnInit {
+  public shopDTO: ShopDTO;
+  public offerDTOS: OfferDTO[];
+  private initialOfferAmount = 20;
+  private loadingCatalog = false;
+  private subscriptions: Array<any> = [];
+  public data: Array<any> = this.offerDTOS;
+
+  constructor(
+    private catalogService: CatalogService,
+    private storageService: StorageService) {
+    this.storageService.myMethod(this.data);
+  }
+
+  ngOnInit() {
+    this.getShop();
+    // this.getShopOffers(this.initialOfferAmount);
+    this.get20ShopOffers();
+  }
+
+  private handleError(error: any) {
+    console.log(error as string);
+    this.loadingCatalog = false;
+  }
+
+  private getShop() {
+    this.subscriptions.push(this.catalogService.getShop().subscribe(
+      result => {
+        this.shopDTO = result;
+        console.log(this.shopDTO);
+      },
+      error => {
+        this.handleError(error);
+      }
+    ));
+  }
+
+  private getShopOffers(amount: number) {
+    this.catalogService.getShopOffers(amount).subscribe(
+      result => {
+        this.offerDTOS = result;
+        console.log(this.offerDTOS);
+      },
+      error => {
+        this.handleError(error);
+      }
+    );
+  }
+
+  private get20ShopOffers() {
+    this.catalogService.get20ShopOffers().subscribe(
+      result => {
+        this.offerDTOS = result;
+      },
+      error => {
+        this.handleError(error);
+      }
+    );
+  }
+
+
+}
+
