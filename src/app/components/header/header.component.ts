@@ -2,8 +2,8 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {CatalogService} from '../../service/catalog-service';
 import {OfferDTO} from '../../model/offer/offer';
 import {CategoryDTO} from '../../model/shop/category';
-import {StorageService} from '../../service/storage-service';
-import {Subscription} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -21,23 +21,13 @@ export class HeaderComponent implements OnInit {
   @ViewChild('#searchBar') searchBarValue: ElementRef;
 
   constructor(private catalogService: CatalogService,
-              private storageService: StorageService) {
-    this.storageService.myMethod$.subscribe((data) => {
-        this.offerDTOs = data; // And he have data here too!
-      }
-    );
+              private router: Router ) {
 
   }
 
-  searchOffers(input: string) {
-    this.input = input;
-    console.log(this.offerDTOs.length);
-    alert(this.offerDTOs.length);
-    for (const entry of this.offerDTOs) {
-      if (entry.name.indexOf(this.input.toString()) >= 0) {
-        this.searchedOfferDTOs.push(entry);
-      }
-    }
+  private getOffersBySearch(input: string) {
+    console.log(input);
+    this.router.navigate(['/searchResult/' + input]);
   }
   ngOnInit() {
     this.getCategories();

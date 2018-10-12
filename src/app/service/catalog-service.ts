@@ -14,6 +14,7 @@ export class CatalogService {
   private getShopOffersUrl = '/getShopOffers';
   private get20ShopOffersUrl = '/get20ShopOffers';
   private getCategoriesUrl = '/getCategories';
+  private getSearchOffersUrl = '/getOffersBySearch/';
 
   constructor(private http: HttpClient,
               private xhrBaseRequestOptions: XhrBaseRequestOptions,
@@ -36,6 +37,10 @@ export class CatalogService {
   }
   public getCategories(): Observable<any> {
     const callUrl = this.baseUrl + this.getCategoriesUrl;
+    return this.http.get(callUrl);
+  }
+  public getOffersBySearch(input: string): Observable<any> {
+    const callUrl = this.baseUrl + this.getSearchOffersUrl + input;
     return this.http.get(callUrl);
   }
 

@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CatalogService} from '../../service/catalog-service';
 import {Shop, ShopDTO} from '../../model/shop/shop';
 import {Offer, OfferDTO} from '../../model/offer/offer';
-import {StorageService} from '../../service/storage-service';
 
 @Component({
   selector: 'app-catalog',
@@ -19,9 +18,7 @@ export class CatalogComponent implements OnInit {
   public data: Array<any> = this.offerDTOS;
 
   constructor(
-    private catalogService: CatalogService,
-    private storageService: StorageService) {
-    this.storageService.myMethod(this.data);
+    private catalogService: CatalogService) {
   }
 
   ngOnInit() {

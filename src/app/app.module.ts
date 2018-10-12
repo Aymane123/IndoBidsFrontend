@@ -13,7 +13,8 @@ import {PictureComponent} from './components/picture/picture.component';
 import {OfferinfoComponent} from './components/offerinfo/offerinfo.component';
 import { CataogsectionComponent } from './components/cataogsection/cataogsection.component';
 import { TimesectionComponent } from './components/timesection/timesection.component';
-import {StorageService} from './service/storage-service';
+import { SearchResultComponent } from './search-result/search-result.component';
+import {routingModule} from './app.routing';
 
 @NgModule({
   declarations: [
@@ -23,16 +24,18 @@ import {StorageService} from './service/storage-service';
     PictureComponent,
     OfferinfoComponent,
     CataogsectionComponent,
-    TimesectionComponent
+    TimesectionComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
     UiModule,
+    routingModule
   ],
   exports: [],
-  providers: [CatalogService, CatalogComponent, XhrBaseRequestOptions, SubscribeResultHandler, StorageService],
+  providers: [CatalogService, CatalogComponent, XhrBaseRequestOptions, SubscribeResultHandler],
   bootstrap: [AppComponent]
 })
 export class AppModule {
