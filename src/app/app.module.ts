@@ -9,15 +9,16 @@ import {HttpClientModule} from '@angular/common/http';
 import {SubscribeResultHandler, XhrBaseRequestOptions} from './util/utils';
 import {UiModule} from './ui/ui.module';
 import {PictureComponent} from './components/picture/picture.component';
-import {CataogsectionComponent} from './components/cataogsection/cataogsection.component';
+import {CataogsectionComponent} from './components/categoriesSection/cataogsection.component';
 import {TimesectionComponent} from './components/timesection/timesection.component';
 import {OfferdetailComponent} from './components/offerdetail/offerdetail.component';
 import {routingModule} from './app.routing';
-import { RedirectComponent } from './components/redirect/redirect.component';
+import {RedirectComponent} from './components/redirect/redirect.component';
 import {Router} from '@angular/router';
 import {DetailtableComponent} from './components/detailtable/detailtable.component';
-import { SortingsectionComponent } from './components/sortingsection/sortingsection.component';
-
+import {SortingsectionComponent} from './components/sortingsection/sortingsection.component';
+import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
+import { SearchResultComponent } from './components/search-result/search-result.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,9 @@ import { SortingsectionComponent } from './components/sortingsection/sortingsect
     OfferdetailComponent,
     RedirectComponent,
     DetailtableComponent,
-    SortingsectionComponent
+    SortingsectionComponent,
+    PageNotFoundComponent,
+    SearchResultComponent
   ],
   imports: [
     BrowserModule,

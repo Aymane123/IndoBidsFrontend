@@ -45,12 +45,10 @@ export class OfferComponent implements OnInit {
     this.goToUrl(this.offer.url);
   }
 
-  goToOfferDetails(id: string): void {
-    this.router.navigate(['/details/' + id]);
-  }
-
-  goToOfferDetailsTest(): void {
-    this.router.navigate(['/details']);
+  showOfferDetails(id: string): void {
+    if (id != null) {
+      this.router.navigate(['/details/' + id]);
+    }
   }
 
   goToUrl(url: string) {

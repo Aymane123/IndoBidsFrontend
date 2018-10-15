@@ -1,12 +1,20 @@
 import {RouterModule, Routes} from '@angular/router';
-import {ModuleWithProviders} from '@angular/core';
+import {ModuleWithProviders, NgModule} from '@angular/core';
 import {OfferdetailComponent} from './components/offerdetail/offerdetail.component';
 import {RedirectComponent} from './components/redirect/redirect.component';
+import {CatalogComponent} from './components/catalog/catalog.component';
+import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
+import {SearchResultComponent} from './components/search-result/search-result.component';
+import {DetailtableComponent} from './components/detailtable/detailtable.component';
 
 const routes: Routes = [
-  {path: 'details', component: OfferdetailComponent},
+  {path: '', redirectTo: 'catalog', pathMatch: 'full'},
+  {path: 'redirect', component: RedirectComponent},
+  {path: 'catalog', component: CatalogComponent},
   {path: 'details/:id', component: OfferdetailComponent},
-  {path: 'redirect', component: RedirectComponent}
+  {path: 'details/:id/detailtable', component: DetailtableComponent},
+  {path: 'search-result/:input', component: SearchResultComponent},
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 export const routingModule: ModuleWithProviders = RouterModule.forRoot(routes);

@@ -1,6 +1,5 @@
-export class Category {
+export class CategoryDTO {
   id: number;
   categoryId: string;
-  parent_category: string;
   value: string;
 }

@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {CatalogService} from '../../service/catalog-service';
 import {Shop, ShopDTO} from '../../model/shop/shop';
 import {Offer, OfferDTO} from '../../model/offer/offer';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-catalog',
@@ -12,18 +13,19 @@ import {Offer, OfferDTO} from '../../model/offer/offer';
 export class CatalogComponent implements OnInit {
   public shopDTO: ShopDTO;
   public offerDTOS: OfferDTO[];
-  private initialOfferAmount = 20;
+  private initialOfferAmount = 18;
   private loadingCatalog = false;
   private subscriptions: Array<any> = [];
 
   constructor(
-    private catalogService: CatalogService) {
+    private catalogService: CatalogService, private route: ActivatedRoute) {
   }
+
 
   ngOnInit() {
     this.getShop();
-    // this.getShopOffers(this.initialOfferAmount);
-    this.get20ShopOffers();
+    this.getShopOffers(this.initialOfferAmount);
+    // this.get20ShopOffers();
   }
 
   private getShop() {
