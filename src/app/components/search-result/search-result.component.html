@@ -1,0 +1,6 @@
+<div class="title">
+  <h2>Your search results:</h2>
+</div>
+<div *ngFor="let offerDTO of searchedOfferDTOs; let i = index" class="item">
+  <app-offer [offer]="offerDTO"></app-offer>
+</div>

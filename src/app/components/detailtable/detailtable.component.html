@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IndobidsDetailtableComponent</title>
+  <!-- Google font -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="/src/app/ui/style/css/tabledata.css">
+
+</head>
+
+<body>
+
+<div class="container-table100">
+  <div class="wrap-table100">
+    <div class="table100 ver1 m-b-110">
+      <div class="table100-head">
+        <table>
+          <thead>
+          <tr class="row100 head">
+            <th class="cell100 column1">Offer specification</th>
+          </tr>
+          </thead>
+        </table>
+      </div>
+      <div class="table100-body js-pscroll">
+        <table>
+          <tbody>
+          <tr class="row100 body">
+            <td class="cell100 column1">Shop</td>
+            <td class="cell100 column2">{{shop.name}}</td>
+          </tr>
+          <tr class="row100 body">
+            <td class="cell100 column1">Product name</td>
+            <td class="cell100 column2">{{offer.name}}</td>
+          </tr>
+          <tr class="row100 body">
+            <td class="cell100 column1">Offer refence</td>
+            <td class="cell100 column2">{{offer.id}}</td>
+          </tr>
+          <tr class="row100 body">
+            <td class="cell100 column1">Description</td>
+            <td class="cell100 column2">{{offer.description}}</td>
+          </tr>
+          <tr class="row100 body">
+            <td class="cell100 column1">Category</td>
+            <td class="cell100 column2">TO DO</td>
+          </tr>
+          <tr class="row100 body">
+            <td class="cell100 column1">Shop delivery cost</td>
+            <td class="cell100 column2">{{deliveryCost}}</td>
+          </tr>
+          <tr class="row100 body">
+            <td class="cell100 column1">Available in stock</td>
+            <td class="cell100 column2">{{availability}}</td>
+          </tr>
+          <tr class="row100 body">
+            <td class="cell100 column1">Delivery</td>
+            <td class="cell100 column2">{{delivery}}</td>
+          </tr>
+          <tr class="row100 body">
+            <td class="cell100 column1">Price</td>
+            <td class="cell100 column2">${{offer.price}}</td>
+          </tr>
+          <tr class="row100 body">
+            <td class="cell100 column1">Old price</td>
+            <td class="cell100 column2">${{offer.oldprice}}</td>
+          </tr>
+          <tr class="row100 body">
+            <td class="cell100 column1">Discount in $</td>
+            <td class="cell100 column2">${{discountPrice}}</td>
+          </tr>
+          <tr class="row100 body">
+            <td class="cell100 column1">Discount in %</td>
+            <td class="cell100 column2">{{discountPercentage}}%</td>
+          </tr>
+          <tr class="row100 body">
+            <td class="cell100 column1">Vendor</td>
+            <td class="cell100 column2">{{offer.vendor}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
