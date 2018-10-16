@@ -5,7 +5,6 @@ import {NgModel} from '@angular/forms';
 import {SubscribeResultHandler, XhrBaseRequestOptions} from '../util/utils';
 import set = Reflect.set;
 import {HttpClient, HttpHeaders, HttpClientModule} from '@angular/common/http';
-import {Offer, OfferDTO} from '../model/offer/offer';
 
 @Injectable()
 export class CatalogService {
@@ -16,7 +15,8 @@ export class CatalogService {
   private getOfferForIdUrl = '/getOfferById/';
   private getCategoriesUrl = '/getCategories';
   private getSearchOffersUrl = '/getOffersBySearch/';
-  private baseAmountOffers = 18;
+  private baseAmountOffers = 54;
+  private nextAmountOffers = 18;
 
   constructor(private http: HttpClient,
               private xhrBaseRequestOptions: XhrBaseRequestOptions,
@@ -29,7 +29,7 @@ export class CatalogService {
   }
 
   public getShopOffers(amount: number): Observable<any> {
-    const callUrl = this.baseUrl + this.getShopOffersUrl + '/' + this.baseAmountOffers;
+    const callUrl = this.baseUrl + this.getShopOffersUrl + '/' + amount;
     return this.http.get(callUrl);
   }
 
@@ -51,6 +51,18 @@ export class CatalogService {
   public getOffersBySearch(input: string): Observable<any> {
     const callUrl = this.baseUrl + this.getSearchOffersUrl + input;
     return this.http.get(callUrl);
+  }
+
+  public getInitialOfferAmount() {
+    if (this.baseAmountOffers != null) {
+      return this.baseAmountOffers;
+    }
+  }
+
+  public getNextOfferAmount() {
+    if (this.nextAmountOffers != null) {
+      return this.nextAmountOffers;
+    }
   }
 
 }

@@ -9,21 +9,28 @@ import {DOCUMENT} from '@angular/common';
   templateUrl: './search-result.component.html',
   styleUrls: ['./search-result.component.css']
 })
+
 export class SearchResultComponent implements OnInit {
   input: string;
   searchedOfferDTOs: OfferDTO[];
 
-  constructor(  @Inject(DOCUMENT) private document: any,
-                private router: Router,
-                private activatedRoute: ActivatedRoute,
-                private catalogService: CatalogService) { }
+  constructor(@Inject(DOCUMENT) private document: any,
+              private router: Router,
+              private activatedRoute: ActivatedRoute,
+              private catalogService: CatalogService) {
+    this.searchedOfferDTOs = [];
+    activatedRoute.params.subscribe(val => {
+      const params: any = this.activatedRoute.snapshot.params;
+      this.input = params.input;
+      console.log('INPUT ' + this.input);
+      this.searchedOfferDTOs = this.activatedRoute.snapshot.data['searchedOffers'];
+    });
+  }
 
   ngOnInit() {
-    console.log('test');
-    const params: any = this.activatedRoute.snapshot.params;
-    this.input = params.input;
-    console.log('INPUT ' + this.input);
-    this.getOffersBySearch();
+
+    // this.getOffersBySearch();
+
   }
 
   private getOffersBySearch() {
@@ -36,6 +43,7 @@ export class SearchResultComponent implements OnInit {
       }
     );
   }
+
   private handleError(error: any) {
     console.log(error as string);
   }

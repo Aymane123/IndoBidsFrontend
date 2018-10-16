@@ -18,23 +18,40 @@
   <!-- container -->
   <div class="container">
     <!-- row -->
-<app-sortingsection [shoptitle]="shopDTO.name"></app-sortingsection>
+    <!--
+    <app-sortingsection [shoptitle]="shopDTO.name"></app-sortingsection>
+    -->
     <!-- /section title -->
-    <div *ngFor="let offerDTO of offerDTOS; let i = index" class="item">
+<!--    <div *ngFor="let offerDTO of offerDTOS | paginate: {itemsPerPage: 4, currentPage: p}">
       <app-offer [offer]="offerDTO"
                  [shop]="shopDTO">
       </app-offer>
       <div class="clearfix visible-sm visible-xs"></div>
+    </div>-->
+
+    <div class="row">
+      <div class="medium-8 medium-offset-2 columns">
+        <h2 class="subheader"></h2>
+        <ul>
+          <li *ngFor="let item of offerDTOS | paginate: { itemsPerPage: 18, currentPage: p }">
+            <app-offer [offer]="item"
+                       [shop]="shopDTO">
+            </app-offer>
+          </li>
+        </ul>
+
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      </div>
     </div>
   </div>
+
+
   <!-- store bottom filter -->
   <div class="store-filter clearfix">
     <span class="store-qty">Showing 20-100 products</span>
     <ul class="store-pagination">
       <li class="active">1</li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
+      <a href="#">1</a>
       <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
     </ul>
   </div>

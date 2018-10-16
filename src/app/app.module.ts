@@ -14,11 +14,15 @@ import {TimesectionComponent} from './components/timesection/timesection.compone
 import {OfferdetailComponent} from './components/offerdetail/offerdetail.component';
 import {routingModule} from './app.routing';
 import {RedirectComponent} from './components/redirect/redirect.component';
-import {Router} from '@angular/router';
 import {DetailtableComponent} from './components/detailtable/detailtable.component';
 import {SortingsectionComponent} from './components/sortingsection/sortingsection.component';
 import {PageNotFoundComponent} from './components/page-not-found/page-not-found.component';
-import { SearchResultComponent } from './components/search-result/search-result.component';
+import {SearchResultComponent} from './components/search-result/search-result.component';
+import {CatalogResolverService} from './service/catalog-resolver-service';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { SearchEmptyComponent } from './components/search-empty/search-empty.component';
+import {SearchResultResolverService} from './service/search-result-resolver-service';
+
 
 @NgModule({
   declarations: [
@@ -33,17 +37,19 @@ import { SearchResultComponent } from './components/search-result/search-result.
     DetailtableComponent,
     SortingsectionComponent,
     PageNotFoundComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    SearchEmptyComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
     UiModule,
-    routingModule
+    routingModule,
+    NgxPaginationModule
   ],
   exports: [],
-  providers: [CatalogService, CatalogComponent, XhrBaseRequestOptions, SubscribeResultHandler],
+  providers: [CatalogService, CatalogComponent, XhrBaseRequestOptions, SubscribeResultHandler, CatalogResolverService, SearchResultResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

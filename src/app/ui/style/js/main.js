@@ -1,3 +1,4 @@
+/*
 (function($) {
 	"use strict"
 
@@ -63,7 +64,7 @@
 
 	/////////////////////////////////////////
 
-	// Product Main img Slick
+/!*	// Product Main img Slick
 	$('#product-main-img').slick({
     infinite: true,
     speed: 300,
@@ -71,8 +72,8 @@
     arrows: true,
     fade: true,
     asNavFor: '#product-imgs',
-  });
-
+  });*!/
+/!*
 	// Product imgs Slick
   $('#product-imgs').slick({
     slidesToShow: 3,
@@ -92,7 +93,7 @@
         }
       },
     ]
-  });
+  });*!/
 
 	// Product img zoom
 	var zoomMainProduct = document.getElementById('product-main-img');
@@ -166,3 +167,4 @@
 	}
 
 })(jQuery);
+*/
