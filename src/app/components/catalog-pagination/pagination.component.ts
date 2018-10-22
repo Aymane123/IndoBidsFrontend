@@ -31,7 +31,7 @@ export class PaginationComponent {
   sort(event) {
     if (event != null) {
       this.key = event.target.value;
-      console.log(event.target.value);
+      console.log(this.key);
       this.reverse = !this.reverse;
     }
   }
