@@ -17,10 +17,15 @@ export class PaginationComponent {
   @Input('offerDTOS') offerDTOS: OfferDTO[] = [];
   @Input('shopDTO') shopDTO: ShopDTO;
 
-  public sortOptions = ['categoryId', 'price', 'discount'];
-  public showOptions = [18, 36, 54];
+  public categoryId: string;
+
+  public sortOptions = ['Discount', 'Price', 'Category'];
   key: string = 'discount'; //set default
-  reverse: boolean = false;
+  reverse: boolean = true;
+
+  constructor(private catalogService: CatalogService) {
+
+  }
 
   public config: PaginationInstance = {
     id: 'custom',
@@ -28,12 +33,37 @@ export class PaginationComponent {
     currentPage: 1
   };
 
-  sort(event) {
-    if (event != null) {
-      this.key = event.target.value;
-      console.log(this.key);
-      this.reverse = !this.reverse;
+  sort(value: string) {
+    if (value != null) {
+      if (value == 'Price') {
+        this.key = 'price';
+      }
+      if (value == 'Category') {
+        this.key = 'categoryId';
+      }
+      if (value == 'Discount') {
+        this.key = 'discount';
+      }
     }
+  }
+
+  setAscending() {
+    this.reverse = false;
+    this.sort(this.key);
+  }
+
+  setDescending() {
+    this.reverse = true;
+    this.sort(this.key);
+  }
+
+  showCategoryOffers($event) {
+
+  }
+
+
+  private handleError(error: any) {
+    console.log(error as string);
   }
 
 }

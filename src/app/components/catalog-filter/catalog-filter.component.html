@@ -1,0 +1,8 @@
+<label>
+  Filter by category:
+  <select name="categoryControl" class="input-select" (change)="onChangeCategory($event)" #selectedCategoryOption>
+    <option *ngFor="let category of categoryDTOS" value="{{category.categoryId}}">
+      {{category.value}}
+    </option>
+  </select>
+</label>

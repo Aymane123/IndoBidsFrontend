@@ -1345,6 +1345,7 @@ textarea.input {
 .store-grid li:hover {
   background-color: #E4E7ED;
   color: #D10024;
+  cursor:pointer;
 }
 
 .store-grid li.active {

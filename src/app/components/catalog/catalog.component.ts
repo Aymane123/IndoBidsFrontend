@@ -4,6 +4,7 @@ import {Shop, ShopDTO} from '../../model/shop/shop';
 import {Offer, OfferDTO} from '../../model/offer/offer';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {PagerService} from '../../service/pager-service';
+import {CategoryDTO} from '../../model/shop/category';
 
 @Component({
   selector: 'app-catalog',
@@ -14,9 +15,8 @@ import {PagerService} from '../../service/pager-service';
 export class CatalogComponent implements OnInit {
   public shopDTO: ShopDTO;
   public offerDTOS: OfferDTO[];
-  public offerDTOSnext: OfferDTO[];
+  public categoryDTOS: CategoryDTO[];
   public initialOfferAmount = 180;
-  private nextOffersAmount = 18;
   private loadingCatalog = false;
   private subscriptions: Array<any> = [];
   public p = 1;
@@ -46,11 +46,10 @@ export class CatalogComponent implements OnInit {
     ));
   }
 
-  private getInitialShopOffers(amount: number) {
-    this.catalogService.getShopOffers(amount).subscribe(
+  private getAllCategories() {
+    this.catalogService.getCategories().subscribe(
       result => {
-        this.offerDTOS = result;
-        console.log(this.offerDTOS);
+        this.categoryDTOS = result;
       },
       error => {
         this.handleError(error);
@@ -58,10 +57,11 @@ export class CatalogComponent implements OnInit {
     );
   }
 
-  private getNextOffers() {
-    this.catalogService.getShopOffers(this.nextOffersAmount).subscribe(
+  private getInitialShopOffers(amount: number) {
+    this.catalogService.getShopOffers(amount).subscribe(
       result => {
-        this.offerDTOSnext = result;
+        this.offerDTOS = result;
+        console.log(this.offerDTOS);
       },
       error => {
         this.handleError(error);

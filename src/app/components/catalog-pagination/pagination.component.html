@@ -3,41 +3,45 @@
                      (pageChange)="config.currentPage = $event">
   <div class="store-filter clearfix">
     <ul class="store-grid">
-      <li class="active"><i class="fa fa-th"></i></li>
-      <li><a href="#"><i class="fa fa-th-list"></i></a></li>
+      Ascending:
+      <li *ngIf="reverse == false; else notActiveAsc" class="active"><i class="fa fa-sort-numeric-asc"
+                                                                        (click)="setDescending()"></i></li>
+      <ng-template #notActiveAsc>
+        <li><i class="fa fa-sort-numeric-asc" (click)="setAscending()"></i></li>
+      </ng-template>
+      Descending:
+      <li *ngIf="reverse == true; else notActiveDesc" class="active"><i class="fa fa-sort-numeric-desc"
+                                                                        (click)="setAscending()"></i></li>
+      <ng-template #notActiveDesc>
+        <li><i class="fa fa-sort-numeric-desc" (click)="setDescending()"></i></li>
+      </ng-template>
     </ul>
-    <div class="store-sort">
+    <div class="store-filter">
       <label>
         Sort by:
-        <select name="sortControl" class="input-select" (change)="sort($event) " #selectedSortOption>
+        <select name="sortControl" class="input-select" (change)="sort($event.target.value) " #selectedSortOption>
           <option [value]="option" *ngFor="let option of sortOptions"> {{option}}</option>
         </select>
-
       </label>
+      <!--   <label>
+           Show amount:
+           <select name="showControl" class="input-select" (change)="sort($event)" #selectedAmountOption>
+             <option [value]="option" *ngFor="let option of showOptions"> {{option}}</option>
+           </select>
+         </label>-->
 
-
-   <!--   <label>
-        Show amount:
-        <select name="showControl" class="input-select" (change)="sort($event)" #selectedAmountOption>
-          <option [value]="option" *ngFor="let option of showOptions"> {{option}}</option>
-        </select>
-      </label>-->
- <!--     <label>
-        Filter by:
-        <select name="categoryControl" class="input-select" (change)="sort($event)" #selectedCategoryOption>
-          <option *ngFor="let category of categoryDTOs" value="{{category.categoryId}}">
-            {{category.value}}
-          </option>
-        </select>
-      </label>-->
     </div>
   </div>
   <ul>
-    <li *ngFor="let offerDTO of offerDTOS | orderBy: key | paginate: config">
+    <li *ngFor="let offerDTO of offerDTOS | orderBy: key : reverse | paginate: config">
       <app-offer [offer]="offerDTO"
                  [shop]="shopDTO">
       </app-offer>
     </li>
+  </ul>
+  <ul class="store-grid">
+    <li class="active"><i class="fa fa-th"></i></li>
+    <li><a href="#"><i class="fa fa-th-list"></i></a></li>
   </ul>
   <div class="center">
     <div class="store-filter clearfix">

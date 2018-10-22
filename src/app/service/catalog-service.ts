@@ -55,8 +55,13 @@ export class CatalogService {
     return this.http.get(callUrl);
   }
 
-  public getOffersByCategoryId(categoryId: string, amount: number): Observable<any> {
+/*  public getOffersByCategoryId(categoryId: string, amount: number): Observable<any> {
     const callUrl = this.baseUrl + this.getOffersByCategory + categoryId + '/' + amount;
+    return this.http.get(callUrl);
+  }*/
+
+  public getOffersByCategoryId(categoryId: string): Observable<any> {
+    const callUrl = this.baseUrl + this.getOffersByCategory + categoryId;
     return this.http.get(callUrl);
   }
 
