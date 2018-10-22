@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,14 +21,16 @@
         <div class="product-img">
           <img
             src="{{offer.picturesUrls[0]}}"
-            alt="Offer {{offer.id}}">
+            alt="Offer {{offer.id}}"
+            routerLink="/details/{{offer.id}}">
+
           <div class="product-label">
-            <span class="sale">-{{priceDifference}}%</span>
+            <span class="sale" *ngIf="offer.discount > 0">-{{offer.discount * 100}}%</span>
             <span class="new">NEW</span>
           </div>
         </div>
         <div class="product-body">
-          <p class="product-category">Category TDO</p>
+          <p class="product-category">{{offer.categories[0].value}}</p>
           <h3 class="product-name"><a routerLink="/details/{{offer.id}}">{{offer.name}}</a></h3>
           <h4 class="product-price">${{offer.price}}
             <del class="product-old-price">${{offer.oldprice}}</del>

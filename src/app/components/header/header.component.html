@@ -34,7 +34,7 @@
       <!-- LOGO -->
       <div class="col-md-3">
         <div class="header-logo-indo">
-          Indobids
+          <a routerLink="/catalog">Indobids</a>
         </div>
       </div>
       <!-- /LOGO -->
@@ -43,11 +43,6 @@
       <div class="col-md-6">
         <div class="header-search">
           <form>
-            <select class="input-select">
-              <option *ngFor="let category of categoryDTOs" value="{{category.categoryId}}">
-                {{category.value}}
-              </option>
-            </select>
             <input class="input" placeholder="Search here" #searchBar>
             <button type="button" (click)="getOffersBySearch(searchBar.value)" class="search-btn">Search</button>
           </form>

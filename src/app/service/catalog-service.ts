@@ -15,8 +15,10 @@ export class CatalogService {
   private getOfferForIdUrl = '/getOfferById/';
   private getCategoriesUrl = '/getCategories';
   private getSearchOffersUrl = '/getOffersBySearch/';
-  private baseAmountOffers = 54;
-  private nextAmountOffers = 18;
+  private getOffersByCategory = '/getOffersByCategoryId/';
+  private getSearchOffersByCategoryUrl = '/getOffersByCategoryAndBySearch/';
+  private amount = 180;
+  private categoryIdFilter;
 
   constructor(private http: HttpClient,
               private xhrBaseRequestOptions: XhrBaseRequestOptions,
@@ -30,11 +32,6 @@ export class CatalogService {
 
   public getShopOffers(amount: number): Observable<any> {
     const callUrl = this.baseUrl + this.getShopOffersUrl + '/' + amount;
-    return this.http.get(callUrl);
-  }
-
-  public get20ShopOffers(): Observable<any> {
-    const callUrl = this.baseUrl + this.get20ShopOffersUrl;
     return this.http.get(callUrl);
   }
 
@@ -53,16 +50,31 @@ export class CatalogService {
     return this.http.get(callUrl);
   }
 
-  public getInitialOfferAmount() {
-    if (this.baseAmountOffers != null) {
-      return this.baseAmountOffers;
+  public getOffersByCategoryAndBySearch(categoryId: string, input: string): Observable<any> {
+    const callUrl = this.baseUrl + this.getSearchOffersByCategoryUrl + categoryId + '/' + input;
+    return this.http.get(callUrl);
+  }
+
+  public getOffersByCategoryId(categoryId: string, amount: number): Observable<any> {
+    const callUrl = this.baseUrl + this.getOffersByCategory + categoryId + '/' + amount;
+    return this.http.get(callUrl);
+  }
+
+  public getAmount() {
+    if (this.amount != null) {
+      return this.amount;
     }
   }
 
-  public getNextOfferAmount() {
-    if (this.nextAmountOffers != null) {
-      return this.nextAmountOffers;
+  public getSelectedCategoryId() {
+    if (this.categoryIdFilter != null) {
+      return this.categoryIdFilter;
     }
   }
 
+  public setSelectedCategoryId(id: string) {
+    if (id != null) {
+      this.categoryIdFilter = id;
+    }
+  }
 }

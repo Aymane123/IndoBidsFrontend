@@ -4,16 +4,16 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>IndoBidsCatalogComponent</title>
+  <title>IndoBidsCategoryFilteredComponent</title>
   <!-- Google font -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 </head>
 <body>
 
 <div class="title">
-  <h2>Your search results:</h2>
+  <h2>Showing products for category: {{filteredOfferDTOS[0].categories[0].value}}:</h2>
 </div>
-<div *ngFor="let offerDTO of searchedOfferDTOs | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
+<div *ngFor="let offerDTO of filteredOfferDTOS | paginate: { itemsPerPage: itemsPerPage, currentPage: p }">
   <app-offer [offer]="offerDTO"></app-offer>
 </div>
 <div class="row">

@@ -77,8 +77,8 @@
 
           <ul class="product-links">
             <li>Category:</li>
-            <li>PARENT CATGEORY</li>
-            <li>CHILD CATEGORY</li>
+            <li>{{offer.categories[0].value}}</li>
+            <li *ngIf="offer.categories[1] != null">{{offer.categories[1].value}}</li>
           </ul>
 
           <ul class="product-links">

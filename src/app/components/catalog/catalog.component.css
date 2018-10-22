@@ -1,0 +1,126 @@
+/*
+.my-catalog-pagination /deep/ .ngx-catalog-pagination .current {
+  background: red;
+}
+
+.my-catalog-pagination /deep/ .ngx-catalog-pagination  {
+  font-size: 170%;
+}*/
+
+.center
+.pagination /deep/ {
+  display: inline-block;
+  text-align: center;
+}
+
+.pagination /deep/ a {
+  color: black;
+  padding: 8px 16px;
+  text-decoration: none;
+  font-size: 170%;
+  transition: background-color .3s;
+  border-radius: 5px;
+  margin: 0 4px; /* 0 is for top and bottom. Feel free to change it */
+
+}
+
+
+.pagination /deep/ a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+
+
+/*
+
+
+
+.catalog-pagination /deep/ {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px
+}
+
+.catalog-pagination /deep/ > li {
+  display: inline
+}
+
+.catalog-pagination /deep/ > li > a, .catalog-pagination > li > span {
+  position: relative;
+  float: left;
+  padding: 6px 12px;
+  margin-left: -1px;
+  line-height: 1.42857143;
+  color: #337ab7;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd
+}
+
+.catalog-pagination /deep/ > li:first-child > a, .catalog-pagination > li:first-child > span {
+  margin-left: 0;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px
+}
+
+.catalog-pagination /deep/ > li:last-child > a, .catalog-pagination > li:last-child > span {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px
+}
+
+.catalog-pagination /deep/ > li > a:focus, .catalog-pagination > li > a:hover, .catalog-pagination > li > span:focus, .catalog-pagination > li > span:hover {
+  z-index: 2;
+  color: #23527c;
+  background-color: #eee;
+  border-color: #ddd
+}
+
+.catalog-pagination /deep/ > .active > a, .catalog-pagination > .active > a:focus, .catalog-pagination > .active > a:hover, .catalog-pagination > .active > span, .catalog-pagination > .active > span:focus, .catalog-pagination > .active > span:hover {
+  z-index: 3;
+  color: #fff;
+  cursor: default;
+  background-color: #337ab7;
+  border-color: #337ab7
+}
+
+.catalog-pagination /deep/ > .disabled > a, .catalog-pagination > .disabled > a:focus, .catalog-pagination > .disabled > a:hover, .catalog-pagination > .disabled > span, .catalog-pagination > .disabled > span:focus, .catalog-pagination > .disabled > span:hover {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #fff;
+  border-color: #ddd
+}
+
+.catalog-pagination-lg /deep/ > li > a, .catalog-pagination-lg > li > span {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333
+}
+
+.catalog-pagination-lg /deep/ > li:first-child > a, .catalog-pagination-lg > li:first-child > span {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px
+}
+
+.catalog-pagination-lg /deep/ > li:last-child > a, .catalog-pagination-lg > li:last-child > span {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px
+}
+
+.catalog-pagination-sm /deep/ > li > a, .catalog-pagination-sm > li > span {
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.5
+}
+
+.catalog-pagination-sm /deep/ > li:first-child > a, .catalog-pagination-sm > li:first-child > span {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px
+}
+
+.catalog-pagination-sm /deep/ > li:last-child > a, .catalog-pagination-sm > li:last-child > span {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px
+}
+*/

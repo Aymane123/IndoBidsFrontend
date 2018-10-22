@@ -20,9 +20,15 @@ import {PageNotFoundComponent} from './components/page-not-found/page-not-found.
 import {SearchResultComponent} from './components/search-result/search-result.component';
 import {CatalogResolverService} from './service/catalog-resolver-service';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { SearchEmptyComponent } from './components/search-empty/search-empty.component';
+import {SearchEmptyComponent} from './components/search-empty/search-empty.component';
 import {SearchResultResolverService} from './service/search-result-resolver-service';
-
+import {PagerService} from './service/pager-service';
+import {PaginationComponent} from './components/catalog-pagination/pagination.component';
+import {CatalogFilterComponent} from './components/catalog-filter/catalog-filter.component';
+import {ShopResolverService} from './service/shop-resolver-service';
+import {CategoryResolverService} from './service/category-resolver-service';
+import { CatalogFilterCategoryComponent } from './components/catalog-filter-category/catalog-filter-category.component';
+import {Ng2OrderModule} from 'ng2-order-pipe';
 
 @NgModule({
   declarations: [
@@ -38,7 +44,10 @@ import {SearchResultResolverService} from './service/search-result-resolver-serv
     SortingsectionComponent,
     PageNotFoundComponent,
     SearchResultComponent,
-    SearchEmptyComponent
+    SearchEmptyComponent,
+    PaginationComponent,
+    CatalogFilterComponent,
+    CatalogFilterCategoryComponent
   ],
   imports: [
     BrowserModule,
@@ -46,10 +55,11 @@ import {SearchResultResolverService} from './service/search-result-resolver-serv
     HttpClientModule,
     UiModule,
     routingModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng2OrderModule
   ],
   exports: [],
-  providers: [CatalogService, CatalogComponent, XhrBaseRequestOptions, SubscribeResultHandler, CatalogResolverService, SearchResultResolverService],
+  providers: [CatalogService, PagerService, CatalogComponent, XhrBaseRequestOptions, SubscribeResultHandler, CatalogResolverService, SearchResultResolverService, ShopResolverService, CategoryResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

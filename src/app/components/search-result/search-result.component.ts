@@ -13,6 +13,7 @@ import {DOCUMENT} from '@angular/common';
 export class SearchResultComponent implements OnInit {
   input: string;
   searchedOfferDTOs: OfferDTO[];
+  public itemsPerPage = 18;
 
   constructor(@Inject(DOCUMENT) private document: any,
               private router: Router,

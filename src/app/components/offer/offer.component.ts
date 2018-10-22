@@ -1,6 +1,6 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
 import {OfferDTO} from '../../model/offer/offer';
-import {Router, RouterModule, Routes} from '@angular/router';
+import {NavigationEnd, Router, RouterModule, Routes} from '@angular/router';
 import {DOCUMENT} from '@angular/common';
 import {ShopDTO} from '../../model/shop/shop';
 

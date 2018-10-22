@@ -12,7 +12,6 @@ import {Router} from '@angular/router';
 
 export class HeaderComponent implements OnInit {
 
-  public categoryDTOs: CategoryDTO[];
   input: string;
   public data = {};
 
@@ -29,24 +28,11 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getCategories();
+
   }
 
   private handleError(error: any) {
     console.log(error as string);
   }
-
-  private getCategories() {
-    this.catalogService.getCategories().subscribe(
-      result => {
-        this.categoryDTOs = result;
-        console.log(this.categoryDTOs);
-      },
-      error => {
-        this.handleError(error);
-      }
-    );
-  }
-
 
 }

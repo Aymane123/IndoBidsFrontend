@@ -458,8 +458,9 @@ textarea.input {
 
 .header-logo-indo {
   float: left;
-  font-size: 50px;
+  font-size: 400%;
   color: whitesmoke;
+  cursor:pointer;
 }
 
 .header-logo .logo img {
@@ -485,7 +486,8 @@ textarea.input {
 }
 
 .header-search form .input {
-  width: calc(100% - 60%);
+  width: calc(100% - 20%);
+  border-radius: 40px 0px 0px 40px;
   margin-right: -4px;
 }
 
@@ -1359,7 +1361,8 @@ textarea.input {
 /*-- Store Pagination --*/
 
 .store-pagination {
-  float: right;
+  text-align: center;
+
 }
 
 .store-pagination li {
@@ -1399,7 +1402,7 @@ textarea.input {
   margin-right: 30px;
   font-weight: 500;
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 100%;
 }
 
 /*=========================================================

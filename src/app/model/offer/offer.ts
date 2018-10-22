@@ -1,5 +1,6 @@
 import {OfferParameter} from './offerParameter';
 import {Picture} from './picture';
+import {CategoryDTO} from '../shop/category';
 
 export class Offer {
   offer_id: number;
@@ -36,4 +37,6 @@ export class OfferDTO {
   description: string;
   available: string;
   picturesUrls: string[];
+  discount: number;
+  categories: CategoryDTO[];
 }
